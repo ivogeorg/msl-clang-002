@@ -1,6 +1,6 @@
 ## Operating Systems Concepts: Programming Assignment C2
 
-_data structures in the C language_
+_linked lists in the C language_
 
 * * * 
 
