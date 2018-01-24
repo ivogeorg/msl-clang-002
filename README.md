@@ -1,6 +1,6 @@
-## Operating Systems Concepts: Programming Assignment C2
+# C Programming Assignment 2
 
-_linked lists in the C language_
+_red-black trees in C_
 
 * * * 
 
@@ -10,10 +10,12 @@ _note: the CMakeLists.txt has a hardcoded library name and location assuming an 
 
 * * *
 
-### Goals
+## Goals
 
 1. Practice development in the C programming language.
-2. Learn to imiplement and use the non-contiguous heap-allocated linked-list data structure.
-3. Learn to write algorithms for linked-list manipulation.
+2. Imiplement a self-balancing red-black tree with O(n) space and O(log n) search, instert, and delete.
+3. Learn to program against an API requirement.
+4. Learn to work with a test suite.
 5. Prepare for [C3](https://github.com/ivogeorg/msl-clang-003).
 6. Develop good coding style.
+
