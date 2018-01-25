@@ -1,4 +1,4 @@
-# C Programming Assignment 2
+# C Programming Assignment 2 (IN PROGRESS)
 
 _red-black trees in C_
 
@@ -35,11 +35,18 @@ Both team members have to make an assignment submission on [Canvas](https://canv
 
 ## Grading
 
+Each team mate gets the number of points the team submission scored.
+
 ### Points
 Maximum: 100
 
 ### Details
 The fraction of tests you pass will be multiplied by the maximum number.
+
+### Bonus
+Maximum: 100 additional points, to be applied to your overall score before final grade calculation
+
+Order the tree according to the dynamic count of words in the file rather than in alphabetical order. Print the words in descending order of incidence. _Warning: This might take a long time._
 
 ## Due date
 
@@ -49,7 +56,7 @@ The assignment is due on **Thu, Feb 1, at 23:59 Mountain time**. The last commit
 
 Free Github repositories are public so you can look at each other's code. Please, don't do that. You can discuss any programming topics and the assignments in general but sharing of solutions diminishes the individual learning experience of many people. Assignments might be randomly checked for plagiarism and a plagiarism claim may be raised against you. You definitely don't want that.
 
-**Note:** There are many implementations of red-black trees _online_. (See [Resources](#resources)) Do not copy-paste. You can look at other implementations, but you have to _type your own code_. The first quiz _after_ the assignment will contain questions on red-black trees, so you need to understand them.
+**Note:** There are many implementations of red-black trees _online_. (See [Resources](#resources).) Do not copy-paste. You can look at other implementations, but you have to _type your own code_. The first quiz _after_ the assignment will contain questions on red-black trees, so you need to understand them.
 
 ## Resources
 
@@ -79,11 +86,11 @@ Two guides for implementation of `malloc()`: [here](http://danluu.com/malloc-tut
 
 ### Input
 
-The input will be a file containing a single line (i.e. no new lines) of all-lower-case English words. You need to read it in to sort them. The file will be in the same directory as your executable and will appear as the first argument when your program is run. To test input files are provided for you. A much larger file will be used in addition to test your program.
+The input will be a file containing English words, one word per line. **The words are not guaranteed to be lower-case for this assignment, but your counts need to be case-INsensitive.** You need to read it in to sort them. The test file(s) will be in the same directory as your executable and will appear as the first argument when your program is run.
 
 ### Output
 
-For each input file `input01.txt`, generate an output file in the same directory, called `myoutput01.txt`. Use the provided `output01.file` to compare against. The output should be an alphabetized list of unique words and their counts in the file, as follows:
+For each input file `input01.txt`, generate an output file in the same directory, called `myoutput01.txt`. **No ground-truth file will be provided for this assignment.** The output should be an alphabetized list of unique lower-case words and their counts in the file, as follows:
 
 ```
 one: 4
@@ -93,7 +100,7 @@ years: 23
 
 ### Data structures
 
-You should use a binary tree to keep the running count for words and keep them in alphabetical order. This means that if you have four words, say *one, two, three, go, one*, that come in this order, you will end up with a tree that looks like:
+You should use a **red-black** binary tree to keep the running count for words and keep them in alphabetical order. This means that if you have four words, say *one, two, three, go, one*, that come in this order, you will end up with a tree that looks like:
 
 ```
     one(2)
@@ -105,17 +112,29 @@ You should use a binary tree to keep the running count for words and keep them i
 
 Think what traversal you need to print the words in the tree in alphabetical order.
 
+#### Red-black trees
+
 The tree has to be a *self-referential* C `struct`, containing a dynamically allocated `word`, its integer `count`, and pointers to the `left` and `right` subtrees. In other words, a tree is equivalent to a single node of the tree.
 
 ### Functionality
 
+For this assignment, you will have an API in a header file that you need to implement against. The test suite will use this API to test your implementation.
+
+#### Overview 
 1. Read words from the file. Don't read in the whole file and then process it. Read it in chunks using a buffer.
 2. Tree lookup for the next word in the input. 
-3. If a word is in the tree, increment the count; if it isn't, dynamically allocate a new node; position and link it properly, and initialize the count to 1.
-4. When you are done with the input, you should have a complete tree. Use it to print out the output file.
+3. If a word is in the tree, increment the count; if it isn't, dynamically allocate a new node; position and link it properly, and initialize the count to 1. _**Note:** The red-black properties need to hold between operations!_
+4. When you are done with the input, you should have a complete approximately-balanced tree. Use it to print out the output file.
 5. Destroy the tree, making sure you `free()` dynamic structures in the proper order.
 6. Your tree functions should be *recursive*.
+
+#### Functions
+
+1. `RBInsert`
+2. `RBDelete`
+3. `RBFind`
 
 ### README
 
 Overwrite the **README.md** file and describe your project (approach, data structures, algorithms, etc.). Use this opportunity to get to know [*markdown*](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). It's a useful skill.
+
