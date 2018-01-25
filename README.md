@@ -74,9 +74,9 @@ Free Github repositories are public so you can look at each other's code. Please
 ## Resources
 
 1. RB trees [explained](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree) on Wikipedia.
-2. RB trees [implemented](http://adtinfo.org/libavl.html/Red_002dBlack-Trees.html) in Ben Pfaff's [GNU libavl](http://adtinfo.org/index.html). _Note: Includes extensive explanations, figures, and links to the standard textbooks on the subject._ _Note: Ben Pfaff is the author of [Pintos](http://pintos-os.org/)._
+2. RB trees [implemented](http://adtinfo.org/libavl.html/Red_002dBlack-Trees.html) in Ben Pfaff's [GNU libavl](http://adtinfo.org/index.html). _Note: Includes extensive explanations, figures, and links to the standard textbooks on the subject. Ben Pfaff is the author of [Pintos](http://pintos-os.org/)._
 3. RB trees [visualized](https://www.cs.usfca.edu/~galles/visualization/RedBlack.html) at University of San Francisco's [Data Structure Visualizations](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html). 
-4. The CLRS [Introduction to Algorithms 3rd ed](http://ressources.unisciel.fr/algoprog/s00aaroot/aa00module1/res/%5BCormen-AL2011%5DIntroduction_To_Algorithms-A3.pdf). _Note: I don't know if this pedagogic resources website has the right to publish this book, but it has been up for a long time and has not been taken down. Assume your own reponsibility for using it._ _Note: The required API is based on this book, which shows pseudocode for all functions._
+4. The CLRS [Introduction to Algorithms 3rd ed](http://ressources.unisciel.fr/algoprog/s00aaroot/aa00module1/res/%5BCormen-AL2011%5DIntroduction_To_Algorithms-A3.pdf). _Note: I don't know if this pedagogic resources website has the right to publish this book, but it has been up for a long time and has not been taken down. Assume your own reponsibility for using it. The required API is based on this book, which shows pseudocode for all functions._
 
 ## Use of libraries
 
