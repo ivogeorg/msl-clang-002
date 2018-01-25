@@ -43,10 +43,19 @@ Maximum: 100
 ### Details
 The fraction of tests you pass will be multiplied by the maximum number.
 
-### Bonus
+### Bonus 1
 Maximum: 100 additional points, to be applied to your overall score before final grade calculation
 
 Order the tree according to the dynamic count of words in the file rather than in alphabetical order. Print the words in descending order of incidence. _Warning: This might take a long time._
+
+See [Detailed instructions](#detailed-instructions) for more information.
+
+### Bonus 2
+Maximum: 200 additional points, to be applied to your overall score before final grade calculation
+
+Implement the _join_ operation on two trees.
+
+See [Detailed instructions](#detailed-instructions) for more information.
 
 ## Due date
 
@@ -82,7 +91,7 @@ This [C98 Library Reference](https://www-s.acm.illinois.edu/webmonkeys/book/c_gu
 
 Two guides for implementation of `malloc()`: [here](http://danluu.com/malloc-tutorial/) and [here](http://www.inf.udec.cl/~leo/Malloc_tutorial.pdf).
 
-## Detailed Instructions
+## Detailed instructions
 
 ### Input
 
@@ -116,6 +125,8 @@ Think what traversal you need to print the words in the tree in alphabetical ord
 
 The tree has to be a *self-referential* C `struct`, containing a dynamically allocated `word`, its integer `count`, and pointers to the `left` and `right` subtrees. In other words, a tree is equivalent to a single node of the tree.
 
+**TODO**
+
 ### Functionality
 
 For this assignment, you will have an API in a header file that you need to implement against. The test suite will use this API to test your implementation.
@@ -133,6 +144,17 @@ For this assignment, you will have an API in a header file that you need to impl
 1. `RBInsert`
 2. `RBDelete`
 3. `RBFind`
+
+**TODO**
+
+#### Bonus 1: Order by count
+
+**TODO**
+
+#### Bonus 2: Join two RB trees
+
+**TODO**
+
 
 ### README
 
