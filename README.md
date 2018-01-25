@@ -111,6 +111,10 @@ years: 23
 
 You should use a **red-black** binary tree to keep the running count for words and keep them in alphabetical order. This means that if you have four words, say *one, two, three, go, one*, that come in this order, you will end up with a tree that looks like:
 
+
+**TODO:** More elaborate example, with colors
+
+
 ```
     one(2)
   /     \
@@ -125,7 +129,9 @@ Think what traversal you need to print the words in the tree in alphabetical ord
 
 The tree has to be a *self-referential* C `struct`, containing a dynamically allocated `word`, its integer `count`, and pointers to the `left` and `right` subtrees. In other words, a tree is equivalent to a single node of the tree.
 
-**TODO**
+
+**TODO:** Definition, properties, C `struct` members/fields
+
 
 ### Functionality
 
@@ -141,19 +147,29 @@ For this assignment, you will have an API in a header file that you need to impl
 
 #### Functions
 
-1. `RBInsert`
-2. `RBDelete`
-3. `RBFind`
+1. `RBFInd`
+2. `RBLeftRotate`
+3. `RBRightRotate`
+4. `RBInsert`
+5. `RBRestoreAfterInsert`
+6. `RBTransplant`
+7. `RBDelete`
+8. `RBRestoreAfterDelete`
 
-**TODO**
+
+**TODO:** Signatures
+
 
 #### Bonus 1: Order by count
 
-**TODO**
+
+**TODO:** Description
+
 
 #### Bonus 2: Join two RB trees
 
-**TODO**
+
+**TODO:** Description
 
 
 ### README
