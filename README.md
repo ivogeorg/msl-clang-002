@@ -78,13 +78,18 @@ Free Github repositories are public so you can look at each other's code. Please
 3. RB trees [visualized](https://www.cs.usfca.edu/~galles/visualization/RedBlack.html) at University of San Francisco's [Data Structure Visualizations](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html). 
 4. The CLRS [Introduction to Algorithms 3rd ed](http://ressources.unisciel.fr/algoprog/s00aaroot/aa00module1/res/%5BCormen-AL2011%5DIntroduction_To_Algorithms-A3.pdf). Chapter 12 is on binary trees and chapter 13 is on red-black trees. _Note: I don't know if this pedagogic resources website has the right to publish this book, but it has been up for a long time and has not been taken down. Assume your own reponsibility for using it. The required API is based on this book, which shows pseudocode for all functions._
 
+#### Note
+The approaches in the above resources may differ significantly. See [Detailed instructions](#detailed-instructions) for the requirements.
+
 ## Use of libraries
 
 For this assignment, no external libraries should be used, except for the ANSI C Standard Library. The implementation of the data structures should be your own. We will use library implementations of data structures and programming primitives in the Pintos assignments.
 
 ## Coding style
 
-Familiarize yourself with and start the following [coding style guide](http://courses.cms.caltech.edu/cs11/material/c/mike/misc/c_style_guide.html). While you are not expected to follow every point of it, you should try to follow it enought to get a feel for what is good style and bad style. C code can quickly become [unreadable](http://www.ioccc.org/) and difficult to maintain.
+Familiarize yourself with and start the following [coding style guide](http://courses.cms.caltech.edu/cs11/material/c/mike/misc/c_style_guide.html). This ["C Coding Standard"](https://users.ece.cmu.edu/~eno/coding/CCodingStandard.html) covers some additional topics as well. 
+
+While you are not expected to follow every point of either, you are expected to develop a consistent C programming style that is as close as possible to the general spirit of both. C code can quickly become [unreadable](http://www.ioccc.org/) and difficult to maintain.
 
 ## References
 
@@ -93,6 +98,11 @@ The [C Reference](http://en.cppreference.com/w/c), which you should get conforta
 The [ISO C Standards](http://www.iso-9899.info/wiki/The_Standard) defines the language. A freely available draft [C11 Standard](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf), if you want to dig deep.
 
 This [C98 Library Reference](https://www-s.acm.illinois.edu/webmonkeys/book/c_guide/) seems to be the standard reference. You should not expect many changes, though it's always good to work off a latest copy of your library reference, which should be available through the vendor/implementor.
+
+The following compendia of frequently asked questions about C are excellent resources for the dusty corners, non-sequiturs, and best practices in C programming:
+
+1. [C Programming FAQs](http://c-faq.com/index.html)
+2. [FAQs at CProgramming.com](https://faq.cprogramming.com/cgi-bin/smartfaq.cgi)
 
 Two guides for implementation of `malloc()`: [here](http://danluu.com/malloc-tutorial/) and [here](http://www.inf.udec.cl/~leo/Malloc_tutorial.pdf).
 
