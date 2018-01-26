@@ -152,7 +152,7 @@ For this assignment, you will have an API in a header file that you need to impl
 
 #### Functions
 
-1. `RBFInd`
+1. `RBFind`
 2. `RBLeftRotate`
 3. `RBRightRotate`
 4. `RBInsert`
