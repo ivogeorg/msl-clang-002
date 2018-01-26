@@ -76,7 +76,7 @@ Free Github repositories are public so you can look at each other's code. Please
 1. RB trees [explained](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree) on Wikipedia.
 2. RB trees [implemented](http://adtinfo.org/libavl.html/Red_002dBlack-Trees.html) in Ben Pfaff's [GNU libavl](http://adtinfo.org/index.html). _Note: Includes extensive explanations, figures, and links to the standard textbooks on the subject. Ben Pfaff is the author of [Pintos](http://pintos-os.org/)._
 3. RB trees [visualized](https://www.cs.usfca.edu/~galles/visualization/RedBlack.html) at University of San Francisco's [Data Structure Visualizations](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html). 
-4. The CLRS [Introduction to Algorithms 3rd ed](http://ressources.unisciel.fr/algoprog/s00aaroot/aa00module1/res/%5BCormen-AL2011%5DIntroduction_To_Algorithms-A3.pdf). _Note: I don't know if this pedagogic resources website has the right to publish this book, but it has been up for a long time and has not been taken down. Assume your own reponsibility for using it. The required API is based on this book, which shows pseudocode for all functions._
+4. The CLRS [Introduction to Algorithms 3rd ed](http://ressources.unisciel.fr/algoprog/s00aaroot/aa00module1/res/%5BCormen-AL2011%5DIntroduction_To_Algorithms-A3.pdf). Chapter 12 is on binary trees and chapter 13 is on red-black trees. _Note: I don't know if this pedagogic resources website has the right to publish this book, but it has been up for a long time and has not been taken down. Assume your own reponsibility for using it. The required API is based on this book, which shows pseudocode for all functions._
 
 ## Use of libraries
 
@@ -152,14 +152,14 @@ For this assignment, you will have an API in a header file that you need to impl
 
 #### Functions
 
-1. `RBFind`
-2. `RBLeftRotate`
-3. `RBRightRotate`
-4. `RBInsert`
-5. `RBRestoreAfterInsert`
-6. `RBTransplant`
-7. `RBDelete`
-8. `RBRestoreAfterDelete`
+1. `rb_find`
+2. `rb_left_rotate`
+3. `rb_right_rotate`
+4. `rb_insert`
+5. `rb_restore_after_insert`
+6. `rb_transplant`
+7. `rb_delete`
+8. `rb_restore_after_delete`
 
 
 **TODO:** Signatures
