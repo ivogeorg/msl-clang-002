@@ -166,7 +166,7 @@ A red-black tree is a _binary_ tree that satisfies the following red-black prope
 5. For each node, all simple paths from the node to descendant leaves contain the same number of black nodes.
 
 #### Sentinel `RB_NULL`
-All leaves and the root's parent ahve to point to a single static sentinel node called `RB_NULL`. It's member's values are immaterial, except that it is **black**.
+All leaves and the root's parent have to point to a single static sentinel node called `RB_NULL`. It's member's values are immaterial, except that it is **black**. This almost halves the necessary space compared to having a separate `NULL` node for each leaf. It's also better than having raw `NULL` values as pointers to _leaves_ as it makes working with external and internal nodes homogeneous.
 
 You will find the sentinel in the [rb_node.c](rb_node.c) file.
 
