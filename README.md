@@ -122,6 +122,8 @@ The following compendia of frequently asked questions about C are excellent reso
 1. [C Programming FAQs](http://c-faq.com/index.html)
 2. [FAQs at CProgramming.com](https://faq.cprogramming.com/cgi-bin/smartfaq.cgi)
 
+A long list of [C/C++ software resources](https://github.com/fffaraz/awesome-cpp).
+
 Two guides for implementation of `malloc()`: [here](http://danluu.com/malloc-tutorial/) and [here](http://www.inf.udec.cl/~leo/Malloc_tutorial.pdf).
 
 ## Detailed instructions
