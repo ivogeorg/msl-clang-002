@@ -27,6 +27,22 @@ _note: the CMakeLists.txt has a hardcoded library name and location assuming an 
 
 This assignment is a continuation of [C PA 1](https://github.com/ivogeorg/msl-clang-001), and adds the extra requirement for _logarithmic_ search, insert, and delete operations. While a simple binary tree can perform these operations in _O(n)_ time, a _red-black tree_ can perform them in _O(log n)_. The RB tree is a self-balancing tree and is guaranteed to be approximately balanced such that _no simple path between a root and a leaf is more than twice as long as any other_. As in the previous assignment, you need to read in a file with English words and output a file where the words are counted and sorted. In this assignment, the files will contain 1000s of words, so an unbalanced tree will be unfeasible.
 
+## Data
+
+File | Size | Number of words | Format
+---|---|---|---
+words.txt | 164K | 20,068 words | one word per line	
+wordlist.txt |	2M |	224,714 words |	one word per line	
+words.utf-8.txt |	6M |	645,288 words |	one word per line	
+words.shakespeare.txt |	228K |	words in the complete works of Shakespeare |	one word per line	
+ospd.txt |	600K |	official Scrabble player's dictionary |	one word per line	
+enable1.txt |	2M |	ENABLE word list |	one word per line	
+web2.txt |	2M |	Webster's NI2 dictionray |	one word per line
+1000words.txt |	7K |	1000 most common words |	one word per line	
+words5-knuth.txt |	34K |	5757 five-letter words |	one word per line
+stopwords.txt |	3K |	words ignored in Wikipedia search |	one word per line
+commonwords.txt |	784K |	74,202 common terms |	one term per line
+
 ## Submission
 
 You need to fork this repository and `git clone` it to your development environment. When you are done and your code works, `git commit` all your changes and `git push` to your forked (aka **remote**) repository. Work in the **master** branch. This assignment will have a test suite, for which you will need an installation of the [cmocka](https://cmocka.org/) testing framework for C. Your will need to pass the tests in the test suite.
@@ -79,7 +95,9 @@ Free Github repositories are public so you can look at each other's code. Please
 4. The CLRS [Introduction to Algorithms 3rd ed](http://ressources.unisciel.fr/algoprog/s00aaroot/aa00module1/res/%5BCormen-AL2011%5DIntroduction_To_Algorithms-A3.pdf). Chapter 12 is on binary trees and chapter 13 is on red-black trees. _Note: I don't know if this pedagogic resources website has the right to publish this book, but it has been up for a long time and has not been taken down. Assume your own reponsibility for using it. The required API is based on this book, which shows pseudocode for all functions._
 
 #### Note
-The approaches in the above resources may differ significantly. See [Detailed instructions](#detailed-instructions) for the requirements.
+The approaches in the above resources may differ significantly. For example, the Wikipedia article splits different cases into separate functions; the libavl implementation deals with generic nodes and allows duplicates; the implementation supporting the visualization also allows duplicates.
+
+See [Detailed instructions](#detailed-instructions) for the requirements.
 
 ## Use of libraries
 
@@ -114,7 +132,7 @@ The input will be a file containing English words, one word per line. **The word
 
 ### Output
 
-For each input file `input01.txt`, generate an output file in the same directory, called `myoutput01.txt`. **No ground-truth file will be provided for this assignment.** The output should be an alphabetized list of unique lower-case words and their counts in the file, as follows:
+For each input file `input01.txt`, generate an output file in the same directory, called `myoutput01.txt`. **No ground-truth files will be provided for this assignment. Consider using your code from C PA 1 to generate them.** The output should be an alphabetized list of unique lower-case words and their counts in the file, as follows:
 
 ```
 one: 4
@@ -126,27 +144,31 @@ years: 23
 
 You should use a **red-black** binary tree to keep the running count for words and keep them in alphabetical order. This means that if you have four words, say *one, two, three, go, one*, that come in this order, you will end up with a tree that looks like:
 
-
-**TODO:** More elaborate example, with colors. `RBNull` node
-
-
 ```
-    one(2)
-  /     \
- go(1)  two(1)
-        /
-     three(1)
+        ["one",2](black)
+            /     \
+ ["go",1](black)  ["two",1](black)
+         /  
+ ["three",1](red)
 ```
 
 Think what traversal you need to print the words in the tree in alphabetical order.
 
 #### Red-black trees
 
-The tree has to be a *self-referential* C `struct`, containing a dynamically allocated `word`, its integer `count`, and pointers to the `left` and `right` subtrees. In other words, a tree is equivalent to a single node of the tree.
+The tree has to be a *self-referential* C `struct`, containing a `color`, a dynamically allocated `word`, its integer `count`, and pointers to the `parent` and `left` and `right` subtrees. In other words, a tree is equivalent to a single node of the tree.
 
+A red-black tree is a _binary_ tree that satisfies the following red-black properties:
+1. Every node is either red or black.
+2. The root is black.
+3. Every leaf (`RB_NULL`) is black.
+4. If a node is red, then both its children are black.
+5. For each node, all simple paths from the node to descendant leaves contain the same number of black nodes.
 
-**TODO:** Definition, properties, C `struct` members/fields
+#### Sentinel `RB_NULL`
+All leaves and the root's parent ahve to point to a single static sentinel node called `RB_NULL`. It's member's values are immaterial, except that it is **black**.
 
+You will find the sentinel in the [rb_tree.c](rb_node.c) file.
 
 ### Functionality
 
@@ -161,27 +183,25 @@ For this assignment, you will have an API in a header file that you need to impl
 6. Your tree functions should be *recursive*.
 
 #### Functions
+See the [rb_tree.h](rb_tree.h) header file for details on the API.
 
-1. `rb_find`
-2. `rb_left_rotate`
-3. `rb_right_rotate`
-4. `rb_insert`
-5. `rb_restore_after_insert`
-6. `rb_transplant`
-7. `rb_delete`
-8. `rb_restore_after_delete`
+1. `struct rb_node *rb_find(const struct rb_node *tree, const struct rb_node *node);`
+2. `void rb_left_rotate(const struct rb_node *tree, const struct rb_node *node);`
+3. `void rb_right_rotate(const struct rb_node *tree, const struct rb_node *node);`
+4. `struct rb_node *rb_insert(const struct rb_node *tree, const struct rb_node *node);`
+5. `void rb_restore_after_insert(const struct rb_node *tree, const struct rb_node *node);`
+6. `struct rb_node *rb_min(const struct rb_node *tree);`
+7. `void rb_transplant(const struct rb_node *tree, struct rb_node *old_root, const struct rb_node *new_root);`
+8. `struct rb_node *rb_delete(const struct rb_node *tree, struct rb_node *node);`
+9. `void rb_restore_after_delete(const struct rb_node *tree, struct rb_node *orphan);`
 
-
-**TODO:** Signatures
-
-
-#### Bonus 1: Order by count
+### Bonus 1: Order by count
 
 
 **TODO:** Description
 
 
-#### Bonus 2: Join two RB trees
+### Bonus 2: Join two RB trees
 
 
 **TODO:** Description

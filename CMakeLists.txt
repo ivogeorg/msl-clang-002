@@ -4,7 +4,7 @@ project(msl-clang-002)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c11 -Werror")
 
 set(SOURCE_FILES
-    main.c rb_tree.c test_suite.h test_suite.c)
+    main.c rb_node.c test_suite.h test_suite.c)
 
 add_library(libcmocka SHARED IMPORTED)
 set_property(TARGET libcmocka PROPERTY IMPORTED_LOCATION /usr/local/lib/libcmocka.0.4.1.dylib) # For MacOS installation
