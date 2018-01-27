@@ -168,7 +168,7 @@ A red-black tree is a _binary_ tree that satisfies the following red-black prope
 #### Sentinel `RB_NULL`
 All leaves and the root's parent ahve to point to a single static sentinel node called `RB_NULL`. It's member's values are immaterial, except that it is **black**.
 
-You will find the sentinel in the [rb_tree.c](rb_node.c) file.
+You will find the sentinel in the [rb_node.c](rb_node.c) file.
 
 ### Functionality
 
@@ -183,7 +183,7 @@ For this assignment, you will have an API in a header file that you need to impl
 6. Your tree functions should be *recursive*.
 
 #### Functions
-See the [rb_tree.h](rb_tree.h) header file for details on the API.
+See the [rb_node.h](rb_node.h) header file for details on the API.
 
 1. `struct rb_node *rb_find(const struct rb_node *tree, const struct rb_node *node);`
 2. `void rb_left_rotate(const struct rb_node *tree, const struct rb_node *node);`
