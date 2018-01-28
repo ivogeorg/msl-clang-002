@@ -63,7 +63,7 @@ rb_find(const struct rb_node *tree, const struct rb_node *node);
  * @note If the expectations of this function are violated, it silently fails.
  */
 void
-rb_left_rotate(const struct rb_node *tree, const struct rb_node *node);
+rb_left_rotate(struct rb_node *tree, struct rb_node *node);
 
 /**
  * @brief Performs a right rotation.
@@ -82,7 +82,7 @@ rb_left_rotate(const struct rb_node *tree, const struct rb_node *node);
  * @note If the expectations of this function are violated, it silently fails.
  */
 void
-rb_right_rotate(const struct rb_node *tree, const struct rb_node *node);
+rb_right_rotate(struct rb_node *tree, struct rb_node *node);
 
 /**
  * @brief Inserts a new node into the tree.
@@ -97,7 +97,7 @@ rb_right_rotate(const struct rb_node *tree, const struct rb_node *node);
  * @return A pointer to the inserted node, or NULL, if duplicate.
  */
 struct rb_node *
-rb_insert(const struct rb_node *tree, const struct rb_node *node);
+rb_insert(struct rb_node *tree, struct rb_node *node);
 
 /**
  * @brief Restores RB properties after an insert.
@@ -112,7 +112,7 @@ rb_insert(const struct rb_node *tree, const struct rb_node *node);
  * @param node Successfully inserted node.
  */
 void
-rb_restore_after_insert(const struct rb_node *tree, const struct rb_node *node);
+rb_restore_after_insert(struct rb_node *tree, struct rb_node *node);
 
 /**
  * @brief Finds the minimum element of the tree.
@@ -125,7 +125,7 @@ rb_restore_after_insert(const struct rb_node *tree, const struct rb_node *node);
  * @return A pointer to the minimum element.
  */
 struct rb_node *
-rb_min(const struct rb_node *tree);
+rb_min(struct rb_node *tree);
 
 /**
  * @brief Replaces one subtree as a child of its parent with another.
@@ -142,7 +142,7 @@ rb_min(const struct rb_node *tree);
  * @note The caller is responsible for updating new_root's children.
  */
 void
-rb_transplant(const struct rb_node *tree, struct rb_node *old_root, const struct rb_node *new_root);
+rb_transplant(struct rb_node *tree, struct rb_node *old_root, struct rb_node *new_root);
 
 /**
  * @brief Delete a node from a tree.
@@ -156,7 +156,7 @@ rb_transplant(const struct rb_node *tree, struct rb_node *old_root, const struct
  * @note The caller is responsible for freeing the deleted node.
  */
 struct rb_node *
-rb_delete(const struct rb_node *tree, struct rb_node *node);
+rb_delete(struct rb_node *tree, struct rb_node *node);
 
 /**
  * @brief Restores RB properties after a delete.
@@ -169,6 +169,6 @@ rb_delete(const struct rb_node *tree, struct rb_node *node);
  * @param orphan The node whose parent was deleted.
  */
 void
-rb_restore_after_delete(const struct rb_node *tree, struct rb_node *orphan);
+rb_restore_after_delete(struct rb_node *tree, struct rb_node *orphan);
 
 #endif //RB_TREE_H
